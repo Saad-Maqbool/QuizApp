@@ -10,13 +10,17 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
+import {QuizService} from './services/quiz.service';
+import {QuestionService} from './services/question.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     NavComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -31,10 +35,14 @@ import { LoginComponent } from './login/login.component';
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'admin',
+        component: AdminComponent
       }
   ])
     ],
-  providers: [UserService],
+  providers: [UserService, QuizService, QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
