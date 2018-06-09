@@ -7,7 +7,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URL);
 //mongoose.connect('mongodb://localhost/quizapp');
-require('./server/models');
+require('./server/models/index');
 const userRouter = require('./server/routes/user');
 // const quizRouter = require('./server/routes/quiz');
  const questionRouter = require('./server/routes/question');
