@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,10 @@ import {UserService} from '../services/user.service';
 export class LoginComponent implements OnInit {
   user = {
     email: '',
-    password: ''
+    password: '',
+    role: ''
   };
-  constructor(private controllerService: UserService) { }
+  constructor(private controllerService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,8 +22,19 @@ export class LoginComponent implements OnInit {
       res => {
         console.log(res);
         localStorage.setItem('user_id', res['userId']);
-      }
-    );
+        if (this.user.role === 'admin') {
+          this.admin();
+        } else {
+          this.guest();
+        }
+      } );
   }
+admin() {
+
+  this.router.navigate(['/admin']);
+}
+guest() {
+      this.router.navigate(['/guest']);
+    }
 
 }

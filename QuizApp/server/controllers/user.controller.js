@@ -7,10 +7,11 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const config = require('../../config');
 
-const create = (req, res, username, email, password) => {
+const create = (req, res, username, email, password, role) => {
   const hashedPassword = bcrypt.hashSync(password, 8);
 
   User.create({
+    role: role,
     username: username,
     email: email,
     password: hashedPassword
