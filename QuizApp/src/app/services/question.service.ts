@@ -8,6 +8,6 @@ export class QuestionService {
 
   constructor(private http: HttpClient) { }
   submit(question) {
-      return this.http.post('/question', question);
+      return this.http.post('/question/?token=' + localStorage.getItem('token'), question);
     }
 }

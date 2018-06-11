@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
+const config = require('../../config');
 const mongoose = require('mongoose');
 const Quiz = mongoose.model('Quiz');
 const quizController = require('../controllers/quiz.controller');
