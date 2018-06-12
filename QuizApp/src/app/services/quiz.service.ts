@@ -4,14 +4,10 @@ import {HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class QuizService {
 
   constructor(private http: HttpClient) { }
-  signup(user) {
-    return this.http.post('/users/register', user);
-  }
-
-  login(user) {
-    return this.http.post('/users/login', user);
+  getQuestion() {
+    return this.http.get('/quiz/?token=' + localStorage.getItem('token'));
   }
 }

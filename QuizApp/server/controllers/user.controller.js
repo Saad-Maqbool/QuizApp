@@ -7,10 +7,11 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const config = require('../../config');
 
-const create = (req, res, username, email, password) => {
+const create = (req, res, username, email, password, role) => {
   const hashedPassword = bcrypt.hashSync(password, 8);
 
   User.create({
+    role: role,
     username: username,
     email: email,
     password: hashedPassword
@@ -34,7 +35,7 @@ const login = (req, res) => {
     const token = jwt.sign({id: user._id}, config.secret, {
       expiresIn: 86400 // expires in 24 hours
     });
-    res.status(200).send({auth: true, token: token, userId: user._id});
+    res.status(200).send({user});
   }).catch((err) => {
     res.status(500).send(err.message);
   });

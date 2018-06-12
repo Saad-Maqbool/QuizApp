@@ -10,7 +10,8 @@ export class RegisterComponent implements OnInit {
   user = {
     username: '',
     email: '',
-    password: ''
+    password: '',
+    role: ''
   };
   constructor(private controllerService: UserService) { }
 

@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = require('mongoose').Schema;
 const quizSchema = new mongoose.Schema({
-  question: String,
-  answer: String,
-  userId: {type: Schema.Types.ObjectId, ref: 'User'}
+  date: String,
+  duration: String,
+  answers: [{questionId: String, answerid: String}],
+  user_id: {type: Schema.Types.ObjectId, ref: 'User'}
 
 });
 

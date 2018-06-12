@@ -7,12 +7,14 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 //mongoose.connect(process.env.MONGODB_URL);
 mongoose.connect('mongodb://localhost/quizapp');
-require('./server/models/user');
-require('./server/models/quiz');
-require('./server/models/question');
+require('./server/models/Question');
+require('./server/models/Answer');
+require('./server/models/Quiz');
+require('./server/models/User');
+
 const userRouter = require('./server/routes/user');
 // const quizRouter = require('./server/routes/quiz');
-// const questionRouter = require('./server/routes/question');
+ const questionRouter = require('./server/routes/question');
 
 const app = express();
 
@@ -24,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'dist/QuizApp')));
 
 app.use('/users', userRouter);
 // app.use('/quiz', quizRouter);
-// app.use('/question', questionRouter);
+ app.use('/question', questionRouter);
 app.use(logger('dev'));
 
 

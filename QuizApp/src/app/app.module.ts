@@ -10,13 +10,27 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
+import {QuizService} from './services/quiz.service';
+import {QuestionService} from './services/question.service';
+import { GuestComponent } from './guest/guest.component';
+import { QuestionComponent } from './admin/question/question.component';
+import { ResultComponent } from './admin/result/result.component';
+import { QuizComponent } from './guest/quiz/quiz.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     NavComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent,
+    GuestComponent,
+    QuestionComponent,
+    ResultComponent,
+    QuizComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -29,12 +43,36 @@ import { LoginComponent } from './login/login.component';
           component: RegisterComponent
         },
       {
+        path: 'logout',
+        component: LogoutComponent
+      },
+      {
+        path: 'quiz',
+        component: QuizComponent
+      },
+      {
         path: 'login',
         component: LoginComponent
-      }
+      },
+      {
+        path: 'admin',
+        component: AdminComponent
+      },
+      {
+        path: 'guest',
+        component: GuestComponent
+      },
+      {
+        path: 'question',
+        component: QuestionComponent
+      },
+      {
+        path: 'result',
+        component: ResultComponent
+      },
   ])
     ],
-  providers: [UserService],
+  providers: [UserService, QuizService, QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

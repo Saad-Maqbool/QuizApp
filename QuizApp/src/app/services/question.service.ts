@@ -4,14 +4,10 @@ import {HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class QuestionService {
 
   constructor(private http: HttpClient) { }
-  signup(user) {
-    return this.http.post('/users/register', user);
-  }
-
-  login(user) {
-    return this.http.post('/users/login', user);
-  }
+  submit(question) {
+      return this.http.post('/question/?token=' + localStorage.getItem('token'), question);
+    }
 }
