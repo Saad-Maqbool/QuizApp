@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
       (res: { user: User })  => {
         console.log(res.user);
         localStorage.setItem('user_id', res['user_id']);
+        localStorage.setItem('token', res['token']);
         if (res.user.role === 'admin') {
           this.admin();
         } else {

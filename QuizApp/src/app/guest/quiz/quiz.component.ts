@@ -7,10 +7,17 @@ import {QuizService} from '../../services/quiz.service';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
-questions;
-  constructor(private controllerService: QuizService) { }
 
+  constructor(private controllerService: QuizService) { }
+  questions;
   ngOnInit() {
   }
-
+getQuestion() {
+    this.controllerService.getQuestion().subscribe(
+    res => {
+      console.log(res);
+      this.questions = res;
+    }
+  );
+}
 }

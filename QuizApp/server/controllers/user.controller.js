@@ -35,7 +35,7 @@ const login = (req, res) => {
     const token = jwt.sign({id: user._id}, config.secret, {
       expiresIn: 86400 // expires in 24 hours
     });
-    res.status(200).send({user});
+    res.status(200).send({auth: true, token: token,user});
   }).catch((err) => {
     res.status(500).send(err.message);
   });

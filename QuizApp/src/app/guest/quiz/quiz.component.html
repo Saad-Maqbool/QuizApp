@@ -1,5 +1,22 @@
-<div class="container">
-<div class="card">
-  <div class="card-body">Basic card</div>
+<app-guest></app-guest>
+<div class="form-group">
 </div>
-</div>
+<form (ngSubmit)="getQuestion()" #userform="ngForm">
+<table class="table">
+  <thead>
+  <tr>
+    <th>Question</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let question of questions">
+    <td>{{question.question}}</td>
+
+
+
+  </tr>
+
+  </tbody>
+</table>
+</form>

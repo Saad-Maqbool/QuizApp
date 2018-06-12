@@ -8,6 +8,6 @@ export class QuizService {
 
   constructor(private http: HttpClient) { }
   getQuestion() {
-    return this.http.get('/quiz/?token=' + localStorage.getItem('token'));
+   return this.http.get('/quiz/?token=' + localStorage.getItem('token'));
   }
 }
