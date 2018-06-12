@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
 import {Router} from '@angular/router';
+import {User} from '../../interfaces/user.inteface';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,6 @@ export class LoginComponent implements OnInit {
   user = {
     email: '',
     password: '',
-    role: ''
   };
   constructor(private controllerService: UserService, private router: Router) { }
 
@@ -19,10 +19,10 @@ export class LoginComponent implements OnInit {
   }
   login() {
     this.controllerService.login(this.user).subscribe(
-      res => {
-        console.log(res);
-        localStorage.setItem('user_id', res['userId']);
-        if (this.user.role === 'admin') {
+      (res: { user: User })  => {
+        console.log(res.user);
+        localStorage.setItem('user_id', res['user_id']);
+        if (res.user.role === 'admin') {
           this.admin();
         } else {
           this.guest();

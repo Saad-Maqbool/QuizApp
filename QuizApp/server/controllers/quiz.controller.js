@@ -7,9 +7,9 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const config = require('../../config');
 
-const response = (req, res, userid, date, duration, questionid,answerid,answers) => {
-  Income.create({
-    userid: userid,
+const response = (req, res, user_id, date, duration, questionid,answerid,answers) => {
+  Quiz.create({
+    user_id: user_id,
     date: date,
     duration: duration,
     questionid: questionid,

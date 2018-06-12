@@ -3,8 +3,8 @@ const Schema = require('mongoose').Schema;
 const quizSchema = new mongoose.Schema({
   date: String,
   duration: String,
-  answers: [{quastionId: String, answerid: String}],
-  userId: {type: Schema.Types.ObjectId, ref: 'User'}
+  answers: [{questionId: String, answerid: String}],
+  user_id: {type: Schema.Types.ObjectId, ref: 'User'}
 
 });
 
