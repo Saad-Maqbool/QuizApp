@@ -16,6 +16,8 @@ import {QuestionService} from './services/question.service';
 import { GuestComponent } from './guest/guest.component';
 import { QuestionComponent } from './admin/question/question.component';
 import { ResultComponent } from './admin/result/result.component';
+import { QuizComponent } from './guest/quiz/quiz.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ResultComponent } from './admin/result/result.component';
     AdminComponent,
     GuestComponent,
     QuestionComponent,
-    ResultComponent
+    ResultComponent,
+    QuizComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,14 @@ import { ResultComponent } from './admin/result/result.component';
           path: 'register',
           component: RegisterComponent
         },
+      {
+        path: 'logout',
+        component: LogoutComponent
+      },
+      {
+        path: 'quiz',
+        component: QuizComponent
+      },
       {
         path: 'login',
         component: LoginComponent

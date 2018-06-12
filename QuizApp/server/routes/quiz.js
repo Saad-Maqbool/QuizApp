@@ -19,13 +19,17 @@ router.use('/', function (req, res, next) {
 
   })
 });
-router.post('/response', ((req, res) => {
+router.post('/', ((req, res) => {
   quizController.response(req, res, req.body.user_id, req.body.date, req.body.duration, req.body.answers[{
     questionid: req.body.questionid,
     answerid: req.body.answerid
   }])
 
 }));
+router.get('/', ((req, res) => {
+  quizController.getAll(req, res)
 
+
+}));
 
 module.exports = router;

@@ -19,7 +19,6 @@ const create = (req, res, question, category) => {
 };
 
 
-
 module.exports = {
 
   create: create,
