@@ -1,7 +1,6 @@
 <app-guest></app-guest>
 <div class="form-group">
 </div>
-<form (ngSubmit)="getQuestion()" #userform="ngForm">
 <table class="table">
   <thead>
   <tr>
@@ -9,14 +8,10 @@
 
   </tr>
   </thead>
-  <tbody>
+
   <tr *ngFor="let question of questions">
     <td>{{question.question}}</td>
-
-
-
   </tr>
 
   </tbody>
 </table>
-</form>

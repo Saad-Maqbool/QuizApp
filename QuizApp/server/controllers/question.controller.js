@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Question = mongoose.model('Question');
+const Answer = mongoose.model('Answer');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
@@ -22,4 +23,5 @@ const create = (req, res, question, category) => {
 module.exports = {
 
   create: create,
+
 };

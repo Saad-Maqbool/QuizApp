@@ -24,11 +24,12 @@ const response = (req, res, user_id, date, duration, questionid,answerid,answers
     res.status(500).send(err.message);
   });
 };
+
 const getAll = (req, res) => {
 
-  Question.find({}).then((question) => {
+  Question.find().then((question) => {
     if (!question.length) {
-      return res.status(404).send("no user found");
+      return res.status(404).send("no question found");
     }
     res.status(200).send(question);
   })
@@ -36,7 +37,6 @@ const getAll = (req, res) => {
       res.status(500).send(err.message);
     });
 };
-
 
 
 module.exports = {

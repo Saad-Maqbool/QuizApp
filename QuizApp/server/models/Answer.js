@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = require('mongoose').Schema;
 const answerSchema = new mongoose.Schema({
-  answer: String,
+    answer: String,
   isCorrect: Boolean,
   questionId: {type: Schema.Types.ObjectId, ref: 'Question'}
 
